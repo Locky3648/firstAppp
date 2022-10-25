@@ -77,6 +77,68 @@ class Student:
         self.endOfDay()
         self.is_alive()
 
+
+
+     def ShowResult(self, ShowResult):
+            print("Day", str(day), " of ", self.name, "life")
+            self.endOfDay()
+
+
+class Gruppa:
+    def __init__(self, name):
+        self.name = name
+        self.students = []
+        self.countStudent = 0
+
+    def addStudents(self, student):
+        self.students.append(student)     # добавляем нового пассажира в массив
+        self.countStudent += 1
+
+    def printStudentsNames(self):
+        if self.students != []:
+            print("Name of the gruppa: ", self.name, "\nCount students: ", self.countStudent)
+            for ps in self.students:
+                print("Name of students: ", ps.name)
+
+        else:
+            print("No students in gruppa!")
+
+    def delStudent(self, delStudent):
+        try:
+            self.students.remove(delStudent)
+        except:
+            print("There are no such student")
+
+    def simulateGrupp(self):
+        for st in self.students:
+            for day in range(365):
+                if st.alive == False:
+                    self.delStudent(st)
+                    break
+                st.live(day)
+
+
+
+nick = Student("Nick")
+Bobik = Student("Bobik")
+
+gruppa1 = Gruppa("Itstep")
+
+gruppa1.delStudent(nick)
+gruppa1.addStudents(Bobik)
+
+
+gruppa1.printStudentsNames()
+
+
+
+
+
+
+
+
+
+
 bodya = Student("bodya")
 for day in range(365):
     if bodya.alive == False:
