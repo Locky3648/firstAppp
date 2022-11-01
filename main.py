@@ -86,8 +86,8 @@ class Student:
 
     def money(self):
         print("Time to work")
-        self.progress += 1
-        self.gladness -= 0.12
+        self.progress -= 1
+        self.gladness -= 1
         self.money += 50
 
 
