@@ -33,9 +33,11 @@ import  random
 class Student:
     def __init__(self, name):
         self.name = name
+        self.money = 50
         self.gladness = 50
         self.progress = 0
         self.alive = True
+
 
     def to_study(self):
         print("Time to study")
@@ -66,22 +68,28 @@ class Student:
 
     def live(self,day):
         print("Day",str(day), " of ", self.name, "life")
-        num = random.randint(1, 3)
+        num = random.randint(1, 4)
         if num == 1:
             self.to_study()
         elif num == 2:
             self.to_chill()
         elif num == 3:
             self.to_sleep()
+        elif num == 4:
+            self.money()
+
+
 
         self.endOfDay()
         self.is_alive()
 
 
+    def money(self):
+        print("Time to work")
+        self.progress += 1
+        self.gladness -= 0.12
+        self.money += 50
 
-     def ShowResult(self, ShowResult):
-            print("Day", str(day), " of ", self.name, "life")
-            self.endOfDay()
 
 
 class Gruppa:
@@ -116,6 +124,13 @@ class Gruppa:
                     self.delStudent(st)
                     break
                 st.live(day)
+
+
+
+
+
+
+
 
 
 
