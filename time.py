@@ -1,76 +1,23 @@
-import requests
+import datetime
 
+class Student:
+    def __init__(self, name, birth_year, group, average_grade):
+        self.name = name
+        self.birth_year = birth_year
+        self.group = group
+        self.average_grade = average_grade
 
-def first_func():
-    pass
+    def __str__(self):
+        return (f"Ім'я: {self.name}\n"
+                f"Рік народження: {self.birth_year}\n"
+                f"Група: {self.group}\n"
+                f"Середній бал: {self.average_grade:.2f}")
 
+    def get_age(self):
+        current_year = datetime.date.today().year
+        return current_year - self.birth_year
 
-class Human:
-    pass
-
-rq = requests
-first_f = first_func
-nick = Human
-
-print(rq.__name__)
-print(first_f.__name__)
-print(nick.__name__)
-
-#можно узнать тип обьекта
-print(type(rq))
-print(type(first_f))
-print(type(nick))
-
-#можно узнать список обьектов и атрибутов
-name = ""
-for method in dir(name):
-    print(method)
-
-print("hasattr - ")
-print(hasattr(name, "reverse"))
-print(hasattr(name, "index"))
-
-print("getattr - ")
-print(getattr(name, "startswith"))
-
-#callable() отвечает на вопрос можно ли вызвать обьект
-
-print(callable(name))
-print(callable(first_func))
-
-class A:
-    pass
-
-class B(A):
-    pass
-
-
-# МОЖЕТ ПОНЯТЬб НАСЛЕДУЕТСЯ ЛИ ЄТОТ КЛАС ОТ ДРУГОГО
-print(issubclass(A, B))
-print(issubclass(B, A))
-
-obj1 = B()
-print(isinstance(obj1, A))
-
-
-import inspect
-
-print(inspect.ismodule(requests))
-print(inspect.ismodule(obj1))
-print(inspect.isclass(requests))
-
-print(inspect.getmodule(requests.get))
-
-
-import  sys
-#можете узнать расположение интерпритатора вашего проекта
-print(sys.executable)
-print(sys.version)
-
-print(sys.platform)
-
-
-
-
-
-
+# Приклад використання
+student = Student("Ілля", 2009, "1111", 8.5)
+print(student)
+print(f"Вік студента: {student.get_age()} років")
